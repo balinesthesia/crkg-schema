@@ -10,7 +10,7 @@ readme = "README.md"
 license = { text = "Apache-2.0" }
 requires-python = ">=3.13"
 authors = [
-    { name = "Kresna Sucandra", email = "kresna@crkg-schema.dev" },
+    { name = "Kresna Sucandra", email = "kresnasucandra@gmail.com" },
 ]
 classifiers = [
     "Development Status :: 2 - Pre-Alpha",

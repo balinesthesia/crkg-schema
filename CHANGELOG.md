@@ -19,5 +19,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Release workflow (TestPyPI + GitHub Releases).
 - Makefile targets: `check`, `test`, `emit`, `fmt`, `lint`.
 
-[Unreleased]: https://github.com/SHA888/crkg-schema/compare/v0.0.1...HEAD
-[0.0.1]: https://github.com/SHA888/crkg-schema/releases/tag/v0.0.1
+[Unreleased]: https://github.com/balinesthesia/crkg-schema/compare/v0.0.1...HEAD
+[0.0.1]: https://github.com/balinesthesia/crkg-schema/releases/tag/v0.0.1

@@ -57,7 +57,7 @@
 ### M0-T05 — Add `.github/CODEOWNERS`
 - [x] **Status:** DONE
 - **Dependency:** —
-- **Notes:** `* @SHA888` for bootstrap. Expand when the contributor pool grows.
+- **Notes:** `* @balinesthesia` for bootstrap. Expand when the contributor pool grows.
 
 ### M0-T06 — Reserve `crkg-schema` on PyPI
 - [ ] **Status:** TODO

@@ -8,7 +8,7 @@
 ## Getting started
 
 ```bash
-git clone https://github.com/SHA888/crkg-schema.git
+git clone https://github.com/balinesthesia/crkg-schema.git
 cd crkg-schema
 uv sync --extra dev
 make check

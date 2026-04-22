@@ -31,8 +31,8 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/SHA888/crkg-schema"
-Repository = "https://github.com/SHA888/crkg-schema"
+Homepage = "https://github.com/balinesthesia/crkg-schema"
+Repository = "https://github.com/balinesthesia/crkg-schema"
 
 [tool.hatch.version]
 path = "src/crkg_schema/__init__.py"

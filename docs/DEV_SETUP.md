@@ -5,7 +5,7 @@
 1. Install Python 3.13 and [uv](https://docs.astral.sh/uv/)
 2. Clone the repo:
    ```bash
-   git clone https://github.com/SHA888/crkg-schema.git
+   git clone https://github.com/balinesthesia/crkg-schema.git
    cd crkg-schema
    ```
 3. Sync dependencies:

@@ -1,0 +1,22 @@
+crkg-schema
+Copyright 2026 Kresna Sucandra and crkg-schema contributors
+
+This product includes software developed by third parties, used under
+the terms of their respective licenses:
+
+  - LinkML toolchain and linkml-runtime
+    Copyright (c) LinkML Contributors
+    Licensed under the BSD-3-Clause License
+
+  - Python programming language
+    Copyright (c) Python Software Foundation
+    Licensed under the PSF License Agreement
+
+  - uv (Python package installer and resolver)
+    Copyright (c) Astral Software Inc.
+    Licensed under the MIT License OR Apache-2.0 License
+
+The crkg-schema project does not redistribute or bundle any licensed
+clinical terminology, controlled vocabularies, or proprietary medical
+datasets. Any references to such terminologies within the schema are
+made by identifier only.

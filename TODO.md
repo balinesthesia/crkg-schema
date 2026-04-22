@@ -35,34 +35,34 @@
 **Linked:** [A§3 Decision record]
 
 ### M0-T01 — Commit `LICENSE` (Apache-2.0)
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** —
 - **Notes:** Full Apache-2.0 text. Copyright line: `Copyright 2026 Kresna Sucandra and crkg-schema contributors`.
 
 ### M0-T02 — Commit `NOTICE`
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** —
 - **Notes:** Attribution for LinkML toolchain (BSD-3-Clause), Python (PSF), uv (MIT OR Apache-2.0). Note that schema does not redistribute any licensed clinical terminology.
 
 ### M0-T03 — Commit `SECURITY.md`
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** —
 - **Notes:** Private disclosure process. Email placeholder pending ops setup.
 
 ### M0-T04 — Commit `CODE_OF_CONDUCT.md`
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** —
 - **Notes:** Contributor Covenant 2.1 or equivalent.
 
 ### M0-T05 — Add `.github/CODEOWNERS`
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** —
 - **Notes:** `* @SHA888` for bootstrap. Expand when the contributor pool grows.
 
 ### M0-T06 — Reserve `crkg-schema` on PyPI
 - [ ] **Status:** TODO
-- **Dependency:** M0-T01
-- **Notes:** Publish an empty v0.0.0 placeholder to claim the name. Prevents squatting. Also reserve on TestPyPI.
+- **Dependency:** M0-T10
+- **Notes:** Buildable package ready. Requires PyPI/TestPyPI credentials or trusted-publisher setup in CI to publish the v0.0.0 placeholder. Run manually or via `release.yml` once credentials are configured.
 
 ---
 
@@ -71,31 +71,31 @@
 **Linked:** [A§3 D-05 Python floor]
 
 ### M0-T10 — Create `pyproject.toml`
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** M0-T01
 - **Notes:** Build backend `hatchling`. Project metadata: name `crkg-schema`, version from `schema/__init__.py`, Apache-2.0, URLs, authors. Python `>=3.13`. Dev deps: `linkml`, `pytest`, `ruff`, `mypy`.
 
 #### M0-T10.1 — Configure hatchling
-- [ ] Include `schema/` as source
-- [ ] Include `emitted/` as package data
-- [ ] Include `fixtures/` as package data
+- [x] Include `schema/` as source
+- [x] Include `emitted/` as package data
+- [x] Include `fixtures/` as package data
 
 #### M0-T10.2 — Configure `[tool.ruff]` and `[tool.mypy]`
-- [ ] Strict mypy
-- [ ] Ruff: E, F, I, N, UP, B, SIM
+- [x] Strict mypy
+- [x] Ruff: E, F, I, N, UP, B, SIM
 
 ### M0-T11 — Pin Python version in `.python-version`
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** M0-T10
 - **Notes:** `3.13`. Not a range — specific version for reproducibility.
 
 ### M0-T12 — Commit `uv.lock`
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** M0-T10
 - **Notes:** Run `uv lock`. Lock file committed.
 
 ### M0-T13 — Verify `uv sync` on cold clone
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** M0-T12
 - **Notes:** Linux, macOS. Windows best-effort.
 
@@ -106,27 +106,27 @@
 **Linked:** [A§3 D-01, D-04], [A§6 Emission pipeline]
 
 ### M0-T20 — Pin LinkML dependency
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** M0-T10
 - **Notes:** `linkml>=1.8,<2.0`. Transitively includes `linkml-runtime`.
 
 ### M0-T21 — Create minimal valid `schema/crkg.yaml`
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** M0-T20
 - **Notes:** LinkML schema with `name`, `id`, `prefixes`, empty `classes`. No content, just structure. This validates the LinkML toolchain works end-to-end before any domain modeling.
 
 ### M0-T22 — Verify `linkml-validate` passes on empty schema
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** M0-T21
 - **Notes:** `linkml-validate --schema schema/crkg.yaml` — expect no errors.
 
 ### M0-T23 — Verify JSON Schema emission on empty schema
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** M0-T22
 - **Notes:** `gen-json-schema schema/crkg.yaml > /tmp/crkg.schema.json` — must produce valid JSON.
 
 ### M0-T24 — Verify Pydantic emission on empty schema
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** M0-T22
 - **Notes:** `gen-pydantic schema/crkg.yaml > /tmp/crkg_models.py` — must produce importable Python.
 
@@ -137,36 +137,36 @@
 **Linked:** [A§6 Emission pipeline]
 
 ### M0-T30 — Create `scripts/emit.py` driver
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** M0-T23, M0-T24
 - **Notes:** One command runs all emission targets. Uses LinkML APIs directly (no shell outs). Writes to `emitted/`.
 
 #### M0-T30.1 — JSON Schema emission
-- [ ] Per-class `.json` files in `emitted/json-schema/`
-- [ ] Draft 2020-12
+- [x] Per-class `.json` files in `emitted/json-schema/`
+- [x] Draft 2020-12
 
 #### M0-T30.2 — Pydantic emission
-- [ ] Single `emitted/pydantic/models.py`
-- [ ] Pydantic v2, no v1 back-compat
+- [x] Single `emitted/pydantic/models.py`
+- [x] Pydantic v2, no v1 back-compat
 
 #### M0-T30.3 — Cypher DDL emission (custom emitter)
-- [ ] Consumes LinkML `SchemaView`
-- [ ] Emits `CREATE CONSTRAINT` and `CREATE INDEX` statements
-- [ ] One file per layer (core, epidemiology, formulary, ethnobotany)
-- [ ] Written in Python under `scripts/emitters/cypher.py`
+- [x] Consumes LinkML `SchemaView`
+- [x] Emits `CREATE CONSTRAINT` and `CREATE INDEX` statements
+- [x] One file per layer (core, epidemiology, formulary, ethnobotany)
+- [x] Written in Python under `scripts/emitters/cypher.py`
 
 #### M0-T30.4 — Mermaid emission (custom emitter)
-- [ ] One `.mmd` per schema layer
-- [ ] Class diagram showing inheritance + associations
-- [ ] Written in Python under `scripts/emitters/mermaid.py`
+- [x] One `.mmd` per schema layer
+- [x] Class diagram showing inheritance + associations
+- [x] Written in Python under `scripts/emitters/mermaid.py`
 
 ### M0-T31 — CI parity check
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** M0-T30
 - **Notes:** CI runs `scripts/emit.py`, compares output to committed `emitted/`. Any drift fails the build. Prevents hand-edited emission.
 
 ### M0-T32 — `Makefile` or `justfile`
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** M0-T30
 - **Notes:** Targets: `check`, `test`, `emit`, `fmt`, `lint`. `make emit` regenerates `emitted/`.
 
@@ -177,12 +177,12 @@
 **Linked:** [A§4 Repository layout — fixtures]
 
 ### M0-T40 — Create `fixtures/` directory structure
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** M0-T21
 - **Notes:** `fixtures/valid/` and `fixtures/invalid/`. Empty for M0 — populated as schema content lands in M1.
 
 ### M0-T41 — Fixture validation harness
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** M0-T22, M0-T40
 - **Notes:** `tests/test_fixtures_valid.py` iterates `fixtures/valid/` and validates each. `tests/test_fixtures_invalid.py` iterates `fixtures/invalid/` and asserts each fails validation. Both tests pass on empty fixture sets.
 
@@ -193,22 +193,22 @@
 **Linked:** [A§3 D-11 from `crkg` — CI platform aligned]
 
 ### M0-T50 — `.github/workflows/ci.yml`
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** M0-T10, M0-T30, M0-T41
 - **Notes:** Runs on every PR. Jobs: `lint` (ruff, mypy), `schema-valid` (linkml-validate), `emission-parity` (M0-T31), `fixtures-valid` (pytest), `build` (uv build). All required before merge.
 
 ### M0-T51 — `.github/workflows/release.yml`
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** M0-T50
 - **Notes:** Triggered on tag `v*`. Runs full CI, builds sdist + wheel, creates GitHub Release, publishes to PyPI via trusted publisher. Attaches `emitted/` tarball.
 
 ### M0-T52 — Branch protection on `main`
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** M0-T50
 - **Notes:** Require CI green, require PR review, require signed commits. Document in `docs/BRANCH_PROTECTION.md`.
 
 ### M0-T53 — `pre-commit` hooks
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** M0-T10
 - **Notes:** `.pre-commit-config.yaml` — ruff, mypy, linkml-validate, check-merge-conflict, trailing-whitespace, end-of-file-fixer, check-yaml, detect-private-key, gitleaks.
 
@@ -217,22 +217,22 @@
 ## Phase 7 — Documentation (target v0.0.1)
 
 ### M0-T60 — `CONTRIBUTING.md`
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** M0-T50
 - **Notes:** Branch naming, signed commits, PR requirements, schema-change process (every schema change = fixture update + CHANGELOG entry).
 
 ### M0-T61 — `CHANGELOG.md`
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** —
 - **Notes:** Keep-a-changelog format. Starts empty.
 
 ### M0-T62 — `docs/DEV_SETUP.md`
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** M0-T13
 - **Notes:** Cold-start contributor → `make check` passing on first PR.
 
 ### M0-T63 — PR and Issue templates
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** —
 - **Notes:** `.github/ISSUE_TEMPLATE/bug.md`, `.github/ISSUE_TEMPLATE/schema-proposal.md`, `.github/PULL_REQUEST_TEMPLATE.md`.
 

@@ -1,0 +1,9 @@
+{
+    "$id": "https://w3id.org/crkg-schema/crkg",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": true,
+    "metamodel_version": "1.7.0",
+    "title": "crkg",
+    "type": "object",
+    "version": null
+}

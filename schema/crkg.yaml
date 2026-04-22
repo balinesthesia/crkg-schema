@@ -1,0 +1,12 @@
+name: crkg
+id: https://w3id.org/crkg-schema/crkg
+prefixes:
+  crkg: https://w3id.org/crkg-schema/
+  linkml: https://w3id.org/linkml/
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  schema: http://schema.org/
+  xsd: http://www.w3.org/2001/XMLSchema#
+default_range: string
+
+classes: {}

@@ -82,7 +82,7 @@ linkml_meta = LinkMLMeta({'default_prefix': 'https://w3id.org/crkg-schema/crkg/'
                              'prefix_reference': 'http://schema.org/'},
                   'xsd': {'prefix_prefix': 'xsd',
                           'prefix_reference': 'http://www.w3.org/2001/XMLSchema#'}},
-     'source_file': '/home/kresna/Crkg/crkg-schema/schema/crkg.yaml'} )
+     'source_file': 'schema/crkg.yaml'} )
 
 
 # Model rebuild

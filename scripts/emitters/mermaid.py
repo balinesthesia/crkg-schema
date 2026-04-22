@@ -25,8 +25,6 @@ def emit_mermaid(schema_path: Path, output_dir: Path) -> None:
     layer_classes: dict[str, list[str]] = {layer: [] for layer in LAYERS}
     for class_name in sv.all_classes():
         layer = _layer_for_class(sv, class_name)
-        if layer not in layer_classes:
-            layer = "core"
         layer_classes[layer].append(class_name)
 
     for layer in LAYERS:
@@ -39,7 +37,6 @@ def emit_mermaid(schema_path: Path, output_dir: Path) -> None:
         classes = sorted(layer_classes[layer])
         # Emit class boxes
         for class_name in classes:
-            c = sv.get_class(class_name)
             slots = sv.class_slots(class_name) or []
             if slots:
                 lines.append(f"    class {class_name} {{")
@@ -53,7 +50,7 @@ def emit_mermaid(schema_path: Path, output_dir: Path) -> None:
                 lines.append(f"    class {class_name}")
         # Emit associations
         for class_name in classes:
-            for slot_name in (sv.class_slots(class_name) or []):
+            for slot_name in sv.class_slots(class_name) or []:
                 slot = sv.induced_slot(slot_name, class_name)
                 range_cls = getattr(slot, "range", None)
                 if range_cls and range_cls in sv.all_classes():

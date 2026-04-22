@@ -2,6 +2,7 @@
 """Run all emission targets from the LinkML schema."""
 
 import argparse
+import re
 import shutil
 import sys
 from pathlib import Path
@@ -34,6 +35,12 @@ def _emit_json_schema() -> None:
 def _emit_pydantic() -> None:
     gen = PydanticGenerator(SCHEMA_FILE)
     out = gen.serialize()
+    # Normalize absolute source_file paths so emission parity passes on any CI runner
+    out = re.sub(
+        r"('source_file'\s*:\s*)'[^']*schema/crkg\.yaml'",
+        r"\1'schema/crkg.yaml'",
+        out,
+    )
     (EMITTED_DIR / "pydantic" / "models.py").write_text(out)
 
 

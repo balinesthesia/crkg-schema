@@ -65,10 +65,16 @@ Each release ships:
 
 Consumers pick the artifacts they need. Most Python consumers install the Pydantic models via `pip install crkg-schema`; everyone else consumes the JSON Schema files from the release tarball.
 
-## Installation (once published)
+## Installation
+
+> **Note:** During v0.0.x (infrastructure-only), releases are published to **TestPyPI** only.
+> Production PyPI publishing will start at v0.1.0 once schema content lands.
 
 ```bash
-# Python consumers
+# From TestPyPI (v0.0.x)
+pip install --index-url https://test.pypi.org/simple/ crkg-schema
+
+# From PyPI (v0.1.0+)
 pip install crkg-schema
 
 # Or with uv
@@ -81,8 +87,8 @@ uv add crkg-schema
 ## Relationship to other projects
 
 - [`crkg`](https://github.com/balinesthesia/crkg) — Python library. Depends on `crkg-schema` for Pydantic models and Cypher DDL. First consumer.
-- [`clinical-rs`](https://github.com/SHA888/clinical-rs) — Rust workspace for clinical data engineering. Independent. May emit data shaped by `crkg-schema` in future Rust ports.
-- [`multiomics-rs`](https://github.com/SHA888/multiomics-rs) — Rust workspace for molecular reference databases. Independent. Same possible future binding.
+- [`clinical-rs`](https://github.com/balinesthesia/clinical-rs) — Rust workspace for clinical data engineering. Independent. May emit data shaped by `crkg-schema` in future Rust ports.
+- [`multiomics-rs`](https://github.com/balinesthesia/multiomics-rs) — Rust workspace for molecular reference databases. Independent. Same possible future binding.
 - [`Zluidr/hl7-rs`](https://github.com/Zluidr/hl7-rs) — Rust HL7 v2 / FHIR / SATUSEHAT crates. Independent. Could emit Arrow records shaped by `crkg-schema` types at hospital ingestion boundaries.
 
 None of these projects is a runtime dependency of `crkg-schema`. The dependency graph flows only inward (everyone depends on the schema; the schema depends on nothing of ours).
@@ -93,7 +99,7 @@ The schema describes data structures. It does not ship any clinical or molecular
 
 ## Contributing
 
-See [`CONTRIBUTING.md`](CONTRIBUTING.md) (to be added in Phase 7 of M0). Until then, issues and discussions are welcome; PRs should wait for the contributor-guidelines task to complete.
+See [`CONTRIBUTING.md`](CONTRIBUTING.md). Issues and PRs welcome; follow the branch naming and signed-commit guidelines in that file.
 
 ## Documents
 

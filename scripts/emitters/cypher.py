@@ -30,8 +30,6 @@ def emit_cypher(schema_path: Path, output_dir: Path) -> None:
     layer_classes: dict[str, list[str]] = {layer: [] for layer in LAYERS}
     for class_name in sv.all_classes():
         layer = _layer_for_class(sv, class_name)
-        if layer not in layer_classes:
-            layer = "core"
         layer_classes[layer].append(class_name)
 
     for layer in LAYERS:
@@ -41,7 +39,6 @@ def emit_cypher(schema_path: Path, output_dir: Path) -> None:
             "",
         ]
         for class_name in sorted(layer_classes[layer]):
-            sv.get_class(class_name)
             # Primary identifier constraint (class name + id)
             lines.append(f"CREATE CONSTRAINT {class_name}_id IF NOT EXISTS")
             lines.append(f"  FOR (n:{class_name})")

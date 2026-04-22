@@ -32,6 +32,8 @@ jobs:
             dist/*
             emitted.tar.gz
           generate_release_notes: true
+      # v0.0.x (infrastructure-only) → TestPyPI to reserve the name and verify packaging.
+      # Switch to production PyPI at v0.1.0 once schema content lands.
       - name: Publish to TestPyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:

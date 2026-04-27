@@ -241,14 +241,14 @@
 ## Phase 8 — Release v0.0.1 (target: M0 kill-gate)
 
 ### M0-T70 — Tag and release v0.0.1
-- [ ] **Status:** TODO
+- [x] **Status:** DONE
 - **Dependency:** all M0-T01..M0-T63
-- **Notes:** First tagged release. Published to TestPyPI only (not production PyPI). An empty-but-valid LinkML schema, full emission pipeline, CI green.
+- **Notes:** Tag v0.0.1 pushed. Release workflow triggered; publishing to TestPyPI.
 
 ### M0-T71 — Verify `pip install -i https://test.pypi.org/simple/ crkg-schema` works
-- [ ] **Status:** TODO
+- [ ] **Status:** PENDING CI
 - **Dependency:** M0-T70
-- **Notes:** Fresh venv, install, `import crkg_schema` succeeds, `crkg_schema.__version__ == "0.0.1"`.
+- **Notes:** Release workflow running. Once TestPyPI publish succeeds, verify: fresh venv, `pip install -i https://test.pypi.org/simple/ crkg-schema`, `import crkg_schema`, `crkg_schema.__version__ == "0.0.1"`.
 
 ---
 

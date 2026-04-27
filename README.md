@@ -63,7 +63,7 @@ Each release ships:
 - `fixtures/valid/` — example instances per class
 - `fixtures/invalid/` — adversarial instances that must fail validation
 
-Consumers pick the artifacts they need. Most Python consumers install the Pydantic models via `pip install crkg-schema`; everyone else consumes the JSON Schema files from the release tarball.
+Consumers pick the artifacts they need. Most Python consumers install the Pydantic models via `uv add crkg-schema` (or `pip install crkg-schema`); everyone else consumes the JSON Schema files from the release tarball.
 
 ## Installation
 
@@ -71,14 +71,15 @@ Consumers pick the artifacts they need. Most Python consumers install the Pydant
 > Production PyPI publishing will start at v0.1.0 once schema content lands.
 
 ```bash
-# From TestPyPI (v0.0.x)
-pip install --index-url https://test.pypi.org/simple/ crkg-schema
+# With uv (recommended)
+uv add crkg-schema
 
-# From PyPI (v0.1.0+)
+# Or with pip
 pip install crkg-schema
 
-# Or with uv
-uv add crkg-schema
+# From TestPyPI (v0.0.x only)
+uv add --index-url https://test.pypi.org/simple/ crkg-schema
+# or: pip install --index-url https://test.pypi.org/simple/ crkg-schema
 
 # Non-Python consumers: download release artifacts
 # curl -L https://github.com/balinesthesia/crkg-schema/releases/download/v0.1.0/crkg-schema-0.1.0.tar.gz

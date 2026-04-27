@@ -245,10 +245,10 @@
 - **Dependency:** all M0-T01..M0-T63
 - **Notes:** Tag v0.0.1 pushed. Release workflow triggered; publishing to TestPyPI.
 
-### M0-T71 — Verify `pip install -i https://test.pypi.org/simple/ crkg-schema` works
+### M0-T71 — Verify package installs from TestPyPI
 - [ ] **Status:** PENDING CI
 - **Dependency:** M0-T70
-- **Notes:** Release workflow running. Once TestPyPI publish succeeds, verify: fresh venv, `pip install -i https://test.pypi.org/simple/ crkg-schema`, `import crkg_schema`, `crkg_schema.__version__ == "0.0.1"`.
+- **Notes:** Release workflow running. Once TestPyPI publish succeeds, verify with uv: `uv venv`, `uv pip install --index-url https://test.pypi.org/simple/ crkg-schema`, `uv run python -c "import crkg_schema; print(crkg_schema.__version__)" == "0.0.1". Or with pip: `pip install -i https://test.pypi.org/simple/ crkg-schema`.
 
 ---
 
